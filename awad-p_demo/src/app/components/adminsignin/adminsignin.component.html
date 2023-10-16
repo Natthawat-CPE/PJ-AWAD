@@ -1,0 +1,38 @@
+<app-menu></app-menu>
+<div class="container-fluid" style="background-color:#decc99;">
+
+    <div class="center">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                    <div class="float-left">
+                        <h3>Admin Sign In</h3>
+                    </div>
+            </div>
+            <div class="card-body">
+                <div>
+                    <form [formGroup]="adminData">
+                        <div class="form-group">
+                            <h5>Username</h5>
+                            <input type="text" class="form-control" formControlName="Admin_Name">
+                        </div>
+                        <div class="form-group">
+                            <h5>Password</h5>
+                            <input type="password" class="form-control" formControlName="Password">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card-footer bg-warning">
+                <div class="card mb-4 border-0 bg-warning" style="padding:10px">
+                    <a (click)="AdminSignin()" class="btn btn-success center"><h6>Sign In</h6></a><br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <!-- Footer content -->
+    </footer>
+
+</div>
+

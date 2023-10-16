@@ -1,0 +1,126 @@
+<app-adminmenu></app-adminmenu>
+
+<div class="col-12 bg-myimg d-flex align-items-center justify-content-center" style="background-color:#decc99;">
+    <h1 class="center text-center display-3">Drinks</h1>
+</div>
+
+<div class="container-fluid" style="background-color:#decc99;">
+
+    <div class="center">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <div class="float-left">
+                    <h3>Create Product</h3>
+                </div>
+            </div>
+            <div class="card-body">
+                <div>
+                    <form [formGroup]="products">
+                        <div class="form-group">
+                            <h5>Product Name</h5>
+                            <input type="text" class="form-control" formControlName="Product_Name">
+                        </div>
+
+                        <div class="form-group">
+                            <h5>ProductType</h5>
+                            <select class="form-control" formControlName='Product_Type' (click)="testProductType()">
+                                <option value="" disabled selected>Select a product</option>
+                                <option *ngFor="let item of productTypes" [value]="item.ProductType_Name">
+                                    {{item.ProductType_Name}}
+                                </option>
+                            </select>
+                        </div>
+
+                        <h5>
+                            <div class="col-md-">
+                                is Hot : <br>
+                                <input type="radio" id="yes" name="is_Hot" formControlName='Product_IsHot'
+                                    (change)="onClickHot(true)" value=true><label class="col-md-2" for="yes">Yes</label>
+                                <input type="radio" id="no" name="is_Hot" formControlName='Product_IsHot'
+                                    (change)="onClickHot(false)" value=false><label class="col-md-2" for="no">No</label>
+                                <div class="form-group" *ngIf="showhot">
+                                    <div class="form-group">
+                                        <h5>Detail</h5>
+                                        <textarea type="text" class="form-control" rows="5"
+                                            formControlName='Product_Detail_Hot'></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <h5>Price</h5>
+                                        <input type="number" class="form-control" formControlName='Product_Price_Hot'>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="file" class="form-control-file" formControlName='Product_Img_Hot'
+                                            (change)="onChangeImg($event)">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </h5>
+
+                        <h5>
+                            <div class="col-md-">
+                                is Cold : <br>
+                                <input type="radio" id="yes" name="is_Cold" formControlName='Product_IsCold'
+                                (change)="onClickCold(true)" value=true>
+                                <label class="col-md-2" for="yes">Yes</label>
+                                <input type="radio" id="no" name="is_Cold" formControlName='Product_IsCold'
+                                (change)="onClickCold(false)" value=false>
+                                <label class="col-md-2" for="no">No</label>
+                                <div class="form-group" *ngIf="showcold">
+                                    <div class="form-group">
+                                        <h5>Detail</h5>
+                                        <textarea type="text" class="form-control" rows="5"
+                                            formControlName='Product_Detail_Cold'></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <h5>Price</h5>
+                                        <input type="number" class="form-control" formControlName='Product_Price_Cold'>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="file" class="form-control-file" formControlName='Product_Img_Cold'
+                                            (change)="onChangeImg($event)">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </h5>
+
+                        <h5>
+                            <div class="col-md-">
+                                is Frappe: <br>
+                                <input type="radio" id="yes" name="is_Frappe" value=true formControlName='Product_IsFrappe' (change)="onClickFrappe(true)"> <label class="col-md-2" for="yes">Yes</label>
+                                <input type="radio" id="no" name="is_Frappe" value=false formControlName='Product_IsFrappe' (change)="onClickFrappe(false)"> <label class="col-md-2" for="no">No</label>
+                                    <div class="form-group" *ngIf="showfrappe">
+                                        <div class="form-group">
+                                            <h5>Detail</h5>
+                                            <textarea type="text" class="form-control" rows="5"
+                                                formControlName='Product_Detail_Frappe'></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <h5>Price</h5>
+                                            <input type="number" class="form-control" formControlName='Product_Price_Frappe'>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="file" class="form-control-file" formControlName='Product_Img_Frappe'
+                                                (change)="onChangeImg($event)">
+                                        </div>
+    
+                                    </div>
+                            </div>
+                        </h5>
+
+                    </form>
+                </div>
+            </div>
+            <div class="card-footer bg-warning">
+                <a routerLink="/showproduct" class="btn btn-secondary float-left">
+                    <h6>Back</h6>
+                </a>
+                <a (click)="createProduct()" class="btn btn-success float-right">
+                    <h6>Create</h6>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>

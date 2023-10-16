@@ -1,0 +1,96 @@
+<app-adminmenu></app-adminmenu>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="https://kit.fontawesome.com/37b4520f8a.js" crossorigin="anonymous"></script> -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+
+<div class="col-12 bg-myimg d-flex align-items-center justify-content-center" style="background-color:#decc99;">
+    <h1 class="center text-center display-3">{{product.Product_Type}}</h1>
+</div>
+
+<div class="container-fluid" style="background-color:#decc99;">
+
+    <div class="card" style="width: 90%; background-color: #fde8c5; margin:auto;  background-attachment: scroll; margin-top: 0%; margin-bottom: 3%;">
+
+
+
+        <br>
+        <br>
+        <br>
+        
+        <div class="row">
+
+            <div style="padding-left: 3%;">
+                <a routerLink="/showproduct" class="btn btn-secondary" role="button">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </a>
+            </div>
+                
+                <div class="col-6 my-auto"   >
+                    <div class="d-flex justify-content-center">
+                        <img src="{{this.ProductForm.value.Product_Img}}" width="70%" >
+                    </div>
+                    <br>
+                    <br>
+                    
+                    <div  class="d-flex justify-content-center" >
+                        <a  (click)="setActivePageType('Hot')" class=" mx-2 btn btn-success" *ngIf="product.Product_IsHot" ><h6>Hot</h6></a>
+                        <a  (click)="setActivePageType('Cold')" class=" mx-2 btn btn-success" *ngIf="product.Product_IsCold" ><h6>Cold</h6></a>
+                        <a  (click)="setActivePageType('Frappe')" class=" mx-2 btn btn-success" *ngIf="product.Product_IsFrappe" ><h6>Frappe</h6></a>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+
+                <div class="col-5 "   >
+                    <form [formGroup]="ProductForm">
+                        <div class="form-group ">
+                            <label ><h6>ProductName :</h6></label>
+                            <input type="text" class="form-control" formControlName="Product_Name">
+                            <br>
+                            <label ><h6>ProductDetail :</h6></label>
+                            <textarea class="form-control" formControlName="Product_Detail" cols="10" rows="4"></textarea>
+                            <br>
+                            <label ><h6>ProductPrice :</h6></label>
+                            <input type="number" class="form-control" formControlName="Product_Price">
+                            <br>
+                            <label ><h6>Chang photo :</h6></label>
+                            <input class="form-control" type="file" formControlName="Product_Img"  (change)="onChangeImg($event)">
+                        </div>
+                    </form>
+
+                    <div class="row">
+                        <div class="col-md-3">
+
+                        </div>
+                        <!-- <div class="col-md-9">
+                            <img *ngIf="previewLoaded" class="img-thumbnail" [src]="this.ProductForm.value.Product_Img" style="height:150px;">
+                        </div> -->
+                    </div>
+
+                    <br>
+                    <div >
+                        <a routerLink="/products" (click)="updateProduct()" class="btn btn-success float-right" style="margin-bottom: 5%;"><h6>Update</h6></a>
+                        <a routerLink="/products" (click)="deleteProduct()" class="btn btn-danger float-left" style="margin-bottom: 5%;"><h6>Delete-Product</h6></a>
+                    </div>
+
+                    <!-- TODO สำหรับการทำแบบจำลอง add Cart เท่านั้น -->
+                    <!-- <div >
+                        <a class="btn btn-outline-primary" role="button" (click)="addProductToCart()">
+                            <i class="fa fa-cart-plus">Add to cart +</i>
+                        ></a>
+                    </div> -->
+                    <!-- TODO **End** -->
+                </div>
+                
+        </div>
+
+
+    </div>
+    <footer class="footer">
+        <!-- Footer content -->
+    </footer>
+</div>

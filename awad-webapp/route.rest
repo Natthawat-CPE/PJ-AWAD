@@ -1,0 +1,180 @@
+### Product
+GET http://localhost:3000/products/get
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MmI4NGE1YTFjNDRlZTBmMmMxYjcxMiIsIkFkbWluX05hbWUiOiJhZG1pbjEiLCJQYXNzd29yZCI6IiQyYSQxMCRud00yN0JhdkkuWmxCVlJWLnBXSUxPcEdMeEdFUzhVR3lLajBXU29nY2U2c1AudWpPTzEydSIsImlhdCI6MTY5NzM5MDI1OCwiZXhwIjoxNjk3MzkwNTU4fQ.9kyoiPPlIbWvwbFFD5XStZ7VnAac9sPu8PBC4b6LWAI
+User-Role: Admin
+
+###
+
+GET http://localhost:3000/products/get/652a65ef6df4f4c67e74d33d
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MmI4NGE1YTFjNDRlZTBmMmMxYjcxMiIsIkFkbWluX05hbWUiOiJhZG1pbjEiLCJQYXNzd29yZCI6IiQyYSQxMCRud00yN0JhdkkuWmxCVlJWLnBXSUxPcEdMeEdFUzhVR3lLajBXU29nY2U2c1AudWpPTzEydSIsImlhdCI6MTY5NzM5MDI1OCwiZXhwIjoxNjk3MzkwNTU4fQ.9kyoiPPlIbWvwbFFD5XStZ7VnAac9sPu8PBC4b6LWAI
+User-Role: Admin
+
+
+###
+POST http://localhost:3000/products/create
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MmI4NGE1YTFjNDRlZTBmMmMxYjcxMiIsIkFkbWluX05hbWUiOiJhZG1pbjEiLCJQYXNzd29yZCI6IiQyYSQxMCRud00yN0JhdkkuWmxCVlJWLnBXSUxPcEdMeEdFUzhVR3lLajBXU29nY2U2c1AudWpPTzEydSIsImlhdCI6MTY5NzM5MjQ5MCwiZXhwIjoxNjk3MzkyNzkwfQ.YSa-bEnRWU25lKlmrxeSA-uIWwlTPqk3lkdVLv03BAc
+User-Role: Admin
+Content-Type: application/json
+
+{
+    "Product_Name": "กาทดปั่น", 
+    "Product_Type": "Coffee", 
+    "Product_IsHot": false, 
+    "Product_IsCold": false, 
+    "Product_IsFrappe": true, 
+    "Product_Detail_Hot": "None",
+    "Product_Price_Hot": 0,
+    "Product_Img_Hot": "None",
+    "Product_Detail_Cold": "None",
+    "Product_Price_Cold": 0,
+    "Product_Img_Cold": "None",
+    "Product_Detail_Frappe": "กามู กูมา ปั่น ๆ ไม่เอาจริง",
+    "Product_Price_Frappe": 60,
+    "Product_Img_Frappe": "https://www.cafe-amazon.com/BackEnd/TempProducts/a90a2c6da837463eb5531c47aac578c0.png"
+}
+
+### Patch Product
+
+PATCH  http://localhost:3000/products/patch/652a65ef6df4f4c67e74d33d
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MmI4NGE1YTFjNDRlZTBmMmMxYjcxMiIsIkFkbWluX05hbWUiOiJhZG1pbjEiLCJQYXNzd29yZCI6IiQyYSQxMCRud00yN0JhdkkuWmxCVlJWLnBXSUxPcEdMeEdFUzhVR3lLajBXU29nY2U2c1AudWpPTzEydSIsImlhdCI6MTY5NzM5MDg0OCwiZXhwIjoxNjk3MzkxMTQ4fQ.JIfO3sjkgoksClWWw0RkQ-8nLY93EgrTEzOIrIsFL4M
+User-Role: Admin
+Content-Type: application/json
+
+{
+    "Product_Name": "กามู", 
+    "Product_Type": "Coffee", 
+    "Product_IsHot": true, 
+    "Product_IsCold": true, 
+    "Product_IsFrappe": true, 
+    "Product_Detail_Hot": "กามู กูมา ร้อน ๆ ตึง ๆ",
+    "Product_Price_Hot": 40,
+    "Product_Img_Hot": "https://www.cafe-amazon.com/BackEnd/TempProducts/5e4ec4baf5004217bce8e054231234fc.png",
+    "Product_Detail_Cold": "กามู กูมา เย็น ๆ ตึง ๆ",
+    "Product_Price_Cold": 50,
+    "Product_Img_Cold": "https://www.cafe-amazon.com/BackEnd/TempProducts/a9237db1112a4bc09be59b49988c74ba.png",
+    "Product_Detail_Frappe": "กามู กูมา ปั่น ๆ ไม่เอาจริง",
+    "Product_Price_Frappe": 60,
+    "Product_Img_Frappe": "https://www.cafe-amazon.com/BackEnd/TempProducts/a90a2c6da837463eb5531c47aac578c0.png"
+}
+
+### ProductType
+
+PATCH  http://localhost:3000/products/patch
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjk5OTk5YjdiYmY0NWQzNzc4MWRmNCIsIlVzZXJfTmFtZSI6InNhaW50IiwiUGFzc3dvcmQiOiIkMmEkMTAkRmFCTjBTYVBROFVidlYydUVpS1p2dThiQ3BML1NmMmtPNlBxSTQ3SVVWQ2RMUGNjV3dhNnEiLCJpYXQiOjE2OTczNDQ2MDMsImV4cCI6MTY5NzM0NDkwM30.bVFrTx6unSPpozT6fKz_XuLa_-AlcZx3s08UTbcE3FM
+User-Role: Admin
+Content-Type: application/json
+
+{
+    "ProductType_Name": "eee"
+}
+
+###
+
+GET http://localhost:3000/productTypes/get
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjk5OTk5YjdiYmY0NWQzNzc4MWRmNCIsIlVzZXJfTmFtZSI6InNhaW50IiwiUGFzc3dvcmQiOiIkMmEkMTAkRmFCTjBTYVBROFVidlYydUVpS1p2dThiQ3BML1NmMmtPNlBxSTQ3SVVWQ2RMUGNjV3dhNnEiLCJpYXQiOjE2OTczNDUyOTgsImV4cCI6MTY5NzM0NTU5OH0.d0nrF5oijhx0UAQwvYC0NoryDmg77jNz1YpE39CUa7Y
+User-Role: User
+
+###
+
+GET http://localhost:3000/productTypes/get/6523c71f874858dcc18e2edc
+
+###
+
+DELETE http://localhost:3000/productTypes/delete/6523b111799e1ee07959ff46
+
+###
+
+PATCH http://localhost:3000/productTypes/patch/6523c71f874858dcc18e2edc
+Content-Type: application/json
+
+{
+    "ProductType_Name": "Coffee"
+}
+
+### Users
+
+POST http://localhost:3000/users/signup
+Content-Type: application/json
+
+{
+    "User_Name": "b630",
+    "Password": "1234"
+}
+
+###
+
+POST http://localhost:3000/users/signin
+Content-Type: application/json
+
+{
+    "User_Name": "saint",
+    "Password": "1234"
+}
+
+### Admin
+
+POST http://localhost:3000/admins/signup
+Content-Type: application/json
+
+{
+    "Admin_Name": "admin1",
+    "Password": "1234"
+}
+
+### Admin Sign In
+
+POST http://localhost:3000/admins/signin
+Content-Type: application/json
+
+{
+    "Admin_Name": "admin1",
+    "Password": "1234"
+}
+
+### My Favorite
+
+POST http://localhost:3000/myfavorites/create
+Content-Type: application/json
+
+{
+    "P_Id": "652cb81f42d9c672376c5fe0",
+    "P_Name": "กามู",
+    "P_Prefix": "เย็น",
+    "U_Id": "652cf294e368234d9a6e76b6"
+}
+
+###
+
+GET http://localhost:3000/myfavorites/get
+
+###
+
+GET  http://localhost:3000/myfavorites/get/uid/65299999b7bbf45d37781df4
+
+### Test
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MjlhNGM0YjdiYmY0NWQzNzc4MWUwYSIsIlVzZXJfTmFtZSI6ImI2MzAiLCJQYXNzd29yZCI6IiQyYSQxMCRkMTZtQ2tDeTdITDZEdVpPL1RveFZPMkhMUlJlZ2xvUmtVQmdhQ0VDcmVJWDRJZGJFcDNTbSIsImlhdCI6MTY5NzMwNDQzNiwiZXhwIjoxNjk3MzA0NzM2fQ.8J1UifB_aH-7wIBXFjMpoyWUmpATLDXV8IKI1CPoTyg
+
+### TEST
+
+GET http://localhost:3000/productTypes/test
+User-Role: Admin
+
+### Mock-up Admin
+
+POST http://localhost:3000/admins/signup
+Content-Type: application/json
+
+{
+    "Admin_Name": "admin1",
+    "Password": "1234"
+}
+
+### Admin Sign In
+
+POST http://localhost:3000/admins/signin
+Content-Type: application/json
+
+{
+    "Admin_Name": "admin1",
+    "Password": "1234"
+}

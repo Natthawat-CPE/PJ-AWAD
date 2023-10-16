@@ -1,0 +1,67 @@
+<app-usermenu></app-usermenu>
+
+<div style="background-color: #decc99; overflow-x: hidden" class="rounded" >
+    <div class="col-12 bg-myimg d-flex align-items-center justify-content-center">
+        <h1 class="center text-center display-3">{{product.Product_Type}}</h1>
+    </div>
+
+    <form>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var theForm = document.forms['form1'];
+            if (!theForm) {
+                theForm = document.form1;
+            }
+            function __doPostBack(eventTarget, eventArgument) {
+                if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                    theForm.__EVENTTARGET.value = eventTarget;
+                    theForm.__EVENTARGUMENT.value = eventArgument;
+                    theForm.submit();
+                }
+            }
+            //]]>
+            
+            </script>
+        <div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <img class="dede" class="rounded float-left" alt="products-image" width="auto" height="632px" style="padding-left: 35%;" src="{{current_Img}}">
+                    <div class="center-button" data-inline="true">
+                        <img *ngIf="product.Product_IsHot" (click)="setDetailHot(product)" src="{{updated_hot_button}}">
+                        <img *ngIf="product.Product_IsCold" (click)="setDetailCold(product)" src="{{updated_cold_button}}">
+                        <img *ngIf="product.Product_IsFrappe" (click)="setDetailFrappe(product)" src="{{updated_frappe_button}}">
+                    </div> 
+                </div>
+                <div class="col-sm-6">
+                    <div  style="text-align: left; padding: 30% 0% 0% 50%; ">
+                        <h3>{{product.Product_Name}}</h3>  
+                    </div> 
+                        <hr style="border-top: 2px solid gray !important; border-right: 0%; margin-left: 50%; width: 50%;">
+                    
+                        <div  style=" padding: 0% 0% 0% 50%; margin:0% -5% 0% 0% ">
+                            <p>{{current_Detail}}</p>
+                        </div>
+
+                        <div  style=" padding: 0% 0% 0% 50%; margin:5% -5% 0% 0% ">
+                            <h5>{{current_Price}} บาท</h5>
+                        </div>
+
+                        <div>
+                            <a routerLink="/products" class="justify-content-end" class="btn btn-secondary" role="button" style="margin: 5% 0% 0% 100%">
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                            </a>
+                            <a class="justify-content-end" class="btn btn-success" role="button" style="margin: 5% 0% 0% 100%">
+                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                
+                  
+                </div>
+                
+            </div>
+            
+        </div>
+    </form>
+
+</div >

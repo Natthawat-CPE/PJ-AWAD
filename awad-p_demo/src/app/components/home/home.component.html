@@ -1,0 +1,119 @@
+<app-menu></app-menu>
+
+<body style="background-color: #decc99;" class="rounded">
+
+    <head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/stacks.css?v=85feea4d403d">
+   
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/Product/product.css?v=f5d2db9a2252">
+    
+    <link rel="alternate" type="application/atom+xml" title="Feed of recent questions" href="/feeds">
+
+    <style>
+        .js-user-slide-init {
+            transform: translate3d(0, -100%, 0);
+        }
+
+        .js-user-slide-in {
+            animation: slideIn 1s forwards;
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, -150%, 0);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate3d(0, -100%, 0);
+            }
+        }
+
+        .js-user-slide-out {
+            animation: slideOut 1s forwards;
+        }
+
+        
+
+        @keyframes slideOut {
+            0% {
+                opacity: 1;
+                transform: translate3d(0, -100%, 0);
+            }
+
+            30% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate3d(0, -50%, 0);
+            }
+        }
+    </style>
+</head>
+
+
+<!-- <script>
+    StackExchange.ready(function () { StackExchange.topbar.init(); });
+    StackExchange.scrollPadding.setPaddingTop(50, 50); 
+</script> -->
+
+<div class="container-fluid">
+
+    <!-- <div data-is-here-when="" class="left-sidebar js-pinned-left-sidebar ps-relative" data-can-be="left-sidebar"></div> -->
+    
+    <!-- <div id="content" class="w100 wmx100 p0 snippet-hidden bg-black-025 snippet-hidden"></div> -->
+
+        <header class="p-wrapper-home btr-lg p48 md:p32 sm:p12 ta-center ps-relative">
+            <div style="clip-path:url(#curve);"
+                class="p32 sm:p12 bar-lg p-bg-dark-gradient d:fc-black-750 ps-relative z-selected fc-black-025 p-font-smooth mbn100 pb128">
+                <div class="wmx9 mx-auto d-flex flex__allitems6 sm:fd-column" style="margin-bottom: -3%">
+                   
+
+                    <div class="flex--item p16 sm:p12 sm:mb12">
+                        <div
+                            class="ps-relative h100 p24 bblr-lg btlr-lg btrr-lg bg-blue-100 fc-black-800">
+                            <div  aria-hidden="true" style='width:16%; height:5%; font-size:36px; margin-left: 40%' >
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </div>
+                            <br><br><br><h2>ค้นหาสินค้าที่น่าสนใจสำหรับคุณ</h2><br>
+                            <a routerLink="/home/usersignin" class="btn btn-primary btn-lg" style="font-weight: bold; color:white" >Client</a>
+
+                        </div>
+                    </div>
+                    <div class="flex--item p16 sm:p12">
+                        <div
+                            class="ps-relative h100 p24 bbrr-lg btlr-lg btrr-lg bg-orange-100 fc-black-800" >
+                            <div  aria-hidden="true" style='width:16%; height:5%; font-size:36px; margin-left: 40%' >
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </div>
+                            <br><br><br><h2>เพิ่มข้อมูลสินค้า</h2><br>
+
+                            <a routerLink="/home/adminsignin"
+                                class="btn btn-danger btn-lg" style="font-weight: bold;">Admin</a>
+                        </div>
+                    </div>
+                </div>
+
+                <h1 class="p-ff-roboto-slab-bold fs-display2 mb0 pt64 pb64 ps-relative z-active overflow-hidden">
+                    <span
+                        class="js-user-slider p-home-tagline va-bottom ps-relative ws-nowrap d-inline-flex fd-column ai-center fc-green-500 lg:d-block mx-auto ta-center js-loaded"
+                        data-words="developer, data scientist, system admin, mobile developer, game developer"
+                        style="width: 222px; height: 5px;"><span class="js-user-slide-in"> Cafe ชาตึง</span>
+                    </span>
+                </h1>
+
+                <span class="w64 h8 bar-pill d-block bg-black-500 mx-auto"></span>
+
+
+            </div>
+
+
+        </header>
+    </div>
+</body>
+
+

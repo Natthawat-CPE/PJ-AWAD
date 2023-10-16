@@ -1,0 +1,47 @@
+<!-- [ngStyle]="{'background-color': 'rgb(240, 227, 165)'}" -->
+<app-usermenu></app-usermenu>
+
+<div class="col-12 bg-myimg d-flex align-items-center justify-content-center" style="background-color:#decc99;">
+    <h1 class="center text-center display-3">Drinks</h1>
+</div>
+
+<div class="container-fluid" style="background-color:#decc99;">
+
+    <div class="center text-center">
+        <app-search (seachTextChanged)="onSearchTextEntered($event)"></app-search>
+    </div><br>
+
+    <div class="center" style="margin-top:30px">
+
+        <ng-container *ngFor="let type of productTypes">
+            <div class="col-12" *ngIf='ShowSeach(type.ProductType_Name)'>
+                <div>
+                    <div class="card-body">
+                        <h2>{{type.ProductType_Name.toUpperCase()}}</h2>
+                        <table class="table table-striped table-inverse">
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Hot</th>
+                                    <th>Cold</th>
+                                    <th>Frappe</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ng-container *ngFor="let item of List_products;">
+                                    <tr *ngIf="(item.Product_Type == type.ProductType_Name) && SeachMatch(item)" 
+                                    routerLink="/products/product/{{item._id}}">
+                                            <td>{{item.Product_Name}}</td>
+                                            <td><p [innerHTML]="isCheck(item.Product_IsHot)"></p></td>
+                                            <td><p [innerHTML]="isCheck(item.Product_IsCold)"></p></td>
+                                            <td><p [innerHTML]="isCheck(item.Product_IsFrappe)"></p></td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+    </div><br>

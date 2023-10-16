@@ -1,0 +1,31 @@
+.fa-15x {
+    font-size: 1.5rem;
+  }
+
+  .fa-12x {
+    font-size: 1.2rem;
+  }
+
+  .navbar-toggler.toggler-example {
+    cursor: pointer;
+  }
+
+  .dark-blue-text {
+    color: #0A38F5;
+  }
+
+  .cus-white-text {
+    color: #ffffff;
+  }
+
+  .dark-pink-text {
+    color: #AC003A;
+  }
+
+  .dark-amber-text {
+    color: #ff6f00;
+  }
+  
+  .dark-teal-text {
+    color: #004d40;
+  }

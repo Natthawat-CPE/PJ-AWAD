@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+
+.center-text {
+  text-align: center;
+}
+
+.footer {
+  height: 400px; /* Adjust this to your desired footer height */
+  background-color: #decc99; /* Adjust to your desired background color */
+  color: #fff; /* Adjust text color for the footer */
+  text-align: center; /* Center the content in the footer */
+  position: relative;
+  clear: both;
+  bottom: 0;
+}
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+/* angulary.json style "@angular/material/prebuilt-themes/indigo-pink.css" */

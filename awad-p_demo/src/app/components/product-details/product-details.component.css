@@ -1,0 +1,13 @@
+.center-button {
+    margin: auto;
+    width: 73%;
+    padding: 3%;
+  }
+
+  .bg-myimg {
+    background-image: url('https://www.cafe-amazon.com/BackEnd/TempBanner1/e4a8790137dd4dadac10e704e3d92700.png');
+    height: 400px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}

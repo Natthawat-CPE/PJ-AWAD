@@ -1,0 +1,36 @@
+<app-adminmenu></app-adminmenu>
+
+<div class="col-12 bg-myimg d-flex align-items-center justify-content-center" style="background-color:#decc99;">
+    <h1 class="center text-center display-3">ProductTypes</h1>
+</div>
+
+<div class="container-fluid" style="background-color:#decc99;">
+
+    <div class="center">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                    <div class="float-left">
+                        <h3>ProductType Name</h3>
+                    </div>
+                    
+                    <a routerLink="/showproducttype/createproducttype" class="btn btn-warning float-right"><h6>Create</h6></a>
+            </div>
+            <div class="card-body">
+                <div>
+                    <table class="table table-striped table-inverse">
+                        <tbody>
+                            <tr *ngFor="let item of productTypes;" routerLink="/showproducttype/producttype/{{item._id}}">
+                                <td><h6>{{item.ProductType_Name}}</h6></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <!-- Footer content -->
+    </footer>
+
+</div>

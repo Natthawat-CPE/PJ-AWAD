@@ -1,0 +1,37 @@
+/* .orbit-bullets {
+    position: relative;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+}
+
+.pdicon-hot {
+    background-image: url(https://www.cafe-amazon.com/images/products_icon_hot.png);
+}
+
+.pdicon-hot { background-image: url('../images/products_icon_hot.png'); }
+.pdicon-cool { background-image: url('../images/products_icon_cool.png'); }
+.pdicon-smooty { background-image: url('../images/products_icon_smooty.png'); }
+.pdicon-hot:hover { background-image: url('../images/products_icon_hot_hover.png'); }
+.pdicon-cool:hover { background-image: url('../images/products_icon_cool_hover.png'); }
+.pdicon-smooty:hover { background-image: url('../images/products_icon_smooty_hover.png'); }
+.pdicon-hot.is-active { background-image: url('../images/products_icon_hot_hover.png'); }
+.pdicon-cool.is-active { background-image: url('../images/products_icon_cool_hover.png'); }
+.pdicon-smooty.is-active { background-image: url('../images/products_icon_smooty_hover.png'); }
+.pdicon-hot_EN { background-image: url('../images/products_icon_hot_EN.png'); }
+.pdicon-cool_EN { background-image: url('../images/products_icon_cool_EN.png'); }
+.pdicon-smooty_EN { background-image: url('../images/products_icon_smooty_EN.png'); }
+.pdicon-hot_EN:hover { background-image: url('../images/products_icon_hot_hover_EN.png'); }
+.pdicon-cool_EN:hover { background-image: url('../images/products_icon_cool_hover_EN.png'); }
+.pdicon-smooty_EN:hover { background-image: url('../images/products_icon_smooty_hover_EN.png'); }
+.pdicon-hot_EN.is-active { background-image: url('../images/products_icon_hot_hover_EN.png'); }
+.pdicon-cool_EN.is-active { background-image: url('../images/products_icon_cool_hover_EN.png'); }
+.pdicon-smooty_EN.is-active { background-image: url('../images/products_icon_smooty_hover_EN.png'); } */
+
+.bg-myimg {
+    background-image: url('https://www.cafe-amazon.com/BackEnd/TempBanner1/e4a8790137dd4dadac10e704e3d92700.png');
+    height: 400px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
