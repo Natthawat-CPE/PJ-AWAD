@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
+import { MyFavoriteService } from 'src/app/services/my-favorite.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product-details',
@@ -31,10 +33,15 @@ export class ProductDetailsComponent implements OnInit{
   current_Detail!: string;
   current_Price!: number;
 
+
+
+  statusMyFavorite:boolean = false;
+
   constructor
   (
     private productService: ProductsService,
     private activatedRoute: ActivatedRoute,
+    private myFavoriteService: MyFavoriteService
   ) 
   
   {
@@ -117,6 +124,65 @@ export class ProductDetailsComponent implements OnInit{
     hot? this.updated_hot_button = this.hot_button_selected : this.updated_hot_button = this.hot_button;
     cold? this.updated_cold_button = this.cold_button_selected : this.updated_cold_button = this.cold_button;
     frappe? this.updated_frappe_button = this.frappe_button_selected : this.updated_frappe_button = this.frappe_button;
+  }
+
+  
+
+  changFavorite(){
+    this.statusMyFavorite = !this.statusMyFavorite;
+    // TODO POST , DELETE this Favorite Product
+    // POST
+    let prefix:string;
+      if (this.updated_hot_button_selected == true) {
+        prefix = "(ร้อน)";
+      } else if (this.updated_cold_button_selected == true) {
+        prefix = "(เย็น)";
+      } else {
+        prefix = "(ปั่น)";
+      }
+
+    let user_id = localStorage.getItem('userId');
+    let product_id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    if (this.statusMyFavorite == true){
+      
+      const saveData = new FormGroup({
+        P_Id: new FormControl(product_id),
+        P_Name: new FormControl(this.product.Product_Name),
+        P_Prefix: new FormControl(prefix),
+        U_Id: new FormControl(user_id),
+      })
+      console.log(saveData);
+
+      this.myFavoriteService.createMyFavorite(saveData.value).subscribe(        
+      data => {
+        console.log(data)
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    } else {
+
+      const deleteData = new FormGroup({
+        P_Id: new FormControl(product_id),
+        P_Prefix: new FormControl(prefix),
+        U_Id: new FormControl(user_id),
+      })
+
+      console.log(deleteData);
+
+      this.myFavoriteService.deleteOneFavoriteByF_name(deleteData.value).subscribe(
+        data => {
+          console.log('Deleted Success !!!');
+        },
+        err => {
+          console.log(err);
+        }
+      );
+
+    }
   }
 
 }

@@ -27,6 +27,8 @@ import { ShowproductComponent } from './components/showproduct/showproduct.compo
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CreateproductComponent } from './components/createproduct/createproduct.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { MyFavoriteIconComponent } from './components/my-favorite-icon/my-favorite-icon.component';
+import { MyFavoriteComponent } from './components/my-favorite/my-favorite.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     ShowproductComponent,
     ProductDetailsComponent,
     CreateproductComponent,
-    EditProductComponent
+    EditProductComponent,
+    MyFavoriteIconComponent,
+    MyFavoriteComponent
   ],
   imports: [
     BrowserModule,

@@ -92,27 +92,27 @@ Content-Type: application/json
 }
 
 ### Users
-
+## TODO Sign-up user
 POST http://localhost:3000/users/signup
 Content-Type: application/json
 
 {
-    "User_Name": "b630",
+    "User_Name": "tong",
     "Password": "1234"
 }
 
 ###
-
+## TODO Sign-in user
 POST http://localhost:3000/users/signin
 Content-Type: application/json
 
 {
-    "User_Name": "saint",
+    "User_Name": "tong",
     "Password": "1234"
 }
 
 ### Admin
-
+## TODO Sign-up Admin
 POST http://localhost:3000/admins/signup
 Content-Type: application/json
 
@@ -132,14 +132,29 @@ Content-Type: application/json
 }
 
 ### My Favorite
-
+## TODO insert DB in myFavorite
 POST http://localhost:3000/myfavorites/create
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MmQxOTdlYWE5ZWY5YTQ5NTdmYTI3ZiIsIlVzZXJfTmFtZSI6InRvbmciLCJQYXNzd29yZCI6IiQyYSQxMCRoRHFqOW42QW9GemJzZEx4YVl5aHR1RndQb1k3OWtCYXhndE1vU1pNdTM4UDZOVDlMYjh0TyIsImlhdCI6MTY5NzQ3MjYyMCwiZXhwIjoxNjk3NDczODIwfQ.TeglPoUJPw4yWsgQHO_371cRah50GWd9t1OPlFkCYwg
 Content-Type: application/json
 
 {
     "P_Id": "652cb81f42d9c672376c5fe0",
     "P_Name": "กามู",
     "P_Prefix": "เย็น",
+    "U_Id": "652cf294e368234d9a6e76b6"
+}
+###
+
+### 
+## TODO DELETE
+DELETE http://localhost:3000/myfavorites/delete/favorite
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MmQxOTdlYWE5ZWY5YTQ5NTdmYTI3ZiIsIlVzZXJfTmFtZSI6InRvbmciLCJQYXNzd29yZCI6IiQyYSQxMCRoRHFqOW42QW9GemJzZEx4YVl5aHR1RndQb1k3OWtCYXhndE1vU1pNdTM4UDZOVDlMYjh0TyIsImlhdCI6MTY5NzQ3MDI0NCwiZXhwIjoxNjk3NDcxNDQ0fQ.dNxDfe1rA30MuLXeFF7-ic96mdcklAuZ3B8vvZ5v09Q
+Content-Type: application/json
+
+{
+    "P_Id": "652cb81f42d9c672376c5fe0",
+    "P_Name": "กามู",
+    "P_Prefix": "(ร้อน)",
     "U_Id": "652cf294e368234d9a6e76b6"
 }
 

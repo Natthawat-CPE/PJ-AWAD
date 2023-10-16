@@ -15,6 +15,7 @@ import { HomeadminComponent } from './components/homeadmin/homeadmin.component';
 import { ShowproductComponent } from './components/showproduct/showproduct.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { MyFavoriteComponent } from './components/my-favorite/my-favorite.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductsComponent },
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'home/admin', component: HomeadminComponent},
   { path: 'showproduct', component: ShowproductComponent},
   { path: 'showproduct/product/:id', component: EditProductComponent},
-  { path: 'showproduct/createproduct', component: CreateproductComponent}
+  { path: 'showproduct/createproduct', component: CreateproductComponent},
+  { path: 'myFavorite', component: MyFavoriteComponent}
 ];
 
 @NgModule({

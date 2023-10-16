@@ -76,10 +76,9 @@ router.post('/signin', async (req, res) => {
         const loginStatus = await compareHash(playload.Password, result.Password);
 
         const status = loginStatus.status;
-        const token = jwt.sign(result, key, {expiresIn: 60*5});
-        console.log(jwt.verify(token, key).Admin_Name);
+        
         if(status) {
-            const token = jwt.sign(result, key, {expiresIn: 60*5});
+            const token = jwt.sign(result, key, {expiresIn: 60*60});
             console.log();
             res.status(200).json({result, token, status});
         } else {

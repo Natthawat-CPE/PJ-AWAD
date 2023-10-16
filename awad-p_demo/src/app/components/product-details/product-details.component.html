@@ -51,9 +51,20 @@
                             <a routerLink="/products" class="justify-content-end" class="btn btn-secondary" role="button" style="margin: 5% 0% 0% 100%">
                                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
                             </a>
-                            <a class="justify-content-end" class="btn btn-success" role="button" style="margin: 5% 0% 0% 100%">
+
+                            <!-- <a class="justify-content-end" class="btn btn-success" role="button" style="margin: 5% 0% 0% 100%">
                                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                            </a>
+                            </a> -->
+                            <!-- TODO Icon Favorite -->
+                            <div class="d-flex justify-content-center">
+                                <!-- <a class="btn btn-outline-danger" role="button" (click)="addProductToCart()"> -->
+                                <a *ngIf="statusMyFavorite" class="btn btn-outline-danger" role="button" (click)="changFavorite()" >
+                                    <i   class="fa fa-heart   fa-2x" aria-hidden="true"></i>
+                                </a>
+                                <a *ngIf="!statusMyFavorite" class="btn btn-outline-danger" role="button" (click)="changFavorite()" >
+                                    <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
+                                </a>
+                            </div>
                         </div>
                 
                   

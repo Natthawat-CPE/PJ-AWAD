@@ -18,8 +18,13 @@ router.get('/get/uid/:u_id', authorization, getMyFavoriteByUid, async (req, res)
     res.json(res.myfavorites);
 });
 
+// // Count
+// router.get('/get/counter/:u_id', authorization, getMyFavoriteByUid, async (req, res) => {
+//     res.json(res.myfavorites);
+// });
+
 // Getting One
-router.get('/get/:id', authorization, getMyFavorite, (req, res) => {
+router.get('/get/:id', authorization, getMyFavoriteByF_id, (req, res) => {
     res.json(res.myfavorite);
 });
 
@@ -40,7 +45,7 @@ router.post('/create', authorization, async (req, res) => {
 });
 
 // Updating One
-router.patch('/patch/:id', authorization, getMyFavorite, async (req, res) => {
+router.patch('/patch/:id', authorization, getMyFavoriteByF_id, async (req, res) => {
     if (req.body.P_Id != null) {
         res.myfavorite.P_Id = req.body.P_Id
     }
@@ -63,7 +68,7 @@ router.patch('/patch/:id', authorization, getMyFavorite, async (req, res) => {
 });
 
 // Deleting One
-router.delete('/delete/:id', authorization, getMyFavorite, async (req, res) => {
+router.delete('/delete/favorite', authorization, getMyFavoriteByF_name, async (req, res) => {
     try {
         await res.myfavorite.deleteOne()
         res.json({ message: "Deleted Product" })
@@ -72,7 +77,16 @@ router.delete('/delete/:id', authorization, getMyFavorite, async (req, res) => {
     }
 })
 
-async function getMyFavorite(req, res, next) {
+router.delete('/delete/:id', authorization, getMyFavoriteByF_id, async (req, res) => {
+    try {
+        await res.myfavorite.deleteOne()
+        res.json({ message: "Deleted Product" })
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+})
+
+async function getMyFavoriteByF_id(req, res, next) {
     let myfavorite
     try{
         myfavorite = await MyFavorite.findById(req.params.id)
@@ -84,6 +98,22 @@ async function getMyFavorite(req, res, next) {
     }
 
     res.myfavorite = myfavorite
+    next()
+}
+
+async function getMyFavoriteByF_name(req, res, next) {
+    let myfavorite
+    try{
+        myfavorite = await MyFavorite.findOne({P_Id: req.body.P_Id, P_Prefix: req.body.P_Prefix, U_Id:req.body.U_Id})
+        if (myfavorite == null) {
+            return res.status(404).json({ message: 'Cannot find myfavorite'})
+        }
+    } catch (err) {
+        return res.status(500).json({ message: err.message })
+    }
+
+    res.myfavorite = myfavorite
+    console.log(myfavorite);
     next()
 }
 

@@ -44,28 +44,163 @@ export class CreateproductComponent implements OnInit{
     this.getAllProductTypes();
   }
 
-  onChangeImg(e:any){
+  // onChangeImg(e:any){
+  //   const file = e.target.files[0];
+  //   if (file == 'None') {
+  //     return
+  //   }
+  //   if(e.target.files.length>0){
+  //     const file = e.target.files[0];
+  //     const reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     reader.onload = () => {
+  //       this.previewLoaded = true;
+  //       this.products.patchValue({
+  //         Product_Img_Hot: reader.result?.toString(),
+  //         Product_Img_Cold: reader.result?.toString(),
+  //         Product_Img_Frappe: reader.result?.toString()
+  //       })
+  //     }
+  //   }
+  // }
+
+  onChangeImgHot(e:any){
+    // const file = e.target.files[0];
+    // if (!file) {
+    //   return
+    // }
+    // var pattern = /image-*/;
+    // const reader = new FileReader();
+    // if (!file.type.match(pattern)) {
+    //   alert('invalid format');
+    //   this.products.reset();
+    //   return;
+    // } 
+    // reader.readAsDataURL(file);
+    // reader.onload = () => {
+    //   this.previewLoaded = true;
+    //   this.products.patchValue({
+    //     Product_Img_Hot: reader.result?.toString(),
+    //   })
+    // }
+
     const file = e.target.files[0];
-    if (file == 'X') {
-      return
+  if (!file) {
+    return;
+  }
+
+  var pattern = /image.*/;
+  if (!file.type.match(pattern)) {
+    alert('Invalid format. Please select an image file.');
+    // You may choose to clear the input or take other actions here.
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+
+  reader.onload = () => {
+    this.previewLoaded = true;
+
+    if (typeof reader.result === 'string') {
+      // Convert the Data URL to a base64 Data URL
+      const base64Data = reader.result.split(',')[1];
+
+      // Construct the base64 Data URL
+      const base64DataUrl = `data:${file.type};base64,${base64Data}`;
+
+      this.products.patchValue({
+        Product_Img_Hot: base64DataUrl,
+      });
     }
-    var pattern = /image-*/;
-    const reader = new FileReader();
-    if (!file.type.match(pattern)) {
-      alert('invalid format');
-      this.products.reset();
-    } 
-    else { 
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        this.previewLoaded = true;
-        this.products.patchValue({
-          Product_Img_Hot: reader.result?.toString(),
-          Product_Img_Cold: reader.result?.toString(),
-          Product_Img_Frappe: reader.result?.toString()
-        })
-      }
+  };
+}
+
+onChangeImgCold(f:any){
+  
+  // const file = f.target.files[0];
+  // if (file == 'None') {
+  //   return
+  // }
+  // var pattern = /image-*/;
+  // const reader = new FileReader();
+  // if (!file.type.match(pattern)) {
+  //   alert('invalid format');
+  //   this.products.reset();
+  // } 
+  // else { 
+  //   reader.readAsDataURL(file);
+  //   reader.onload = () => {
+  //     this.previewLoaded = true;
+  //     this.products.patchValue({
+  //       Product_Img_Cold: reader.result?.toString(),
+  //     })
+  //   }
+  // }
+
+  const file = f.target.files[0];
+  if (!file) {
+    return;
+  }
+
+  var pattern = /image.*/;
+  if (!file.type.match(pattern)) {
+    alert('Invalid format. Please select an image file.');
+    // You may choose to clear the input or take other actions here.
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+
+  reader.onload = () => {
+    this.previewLoaded = true;
+
+    if (typeof reader.result === 'string') {
+      // Convert the Data URL to a base64 Data URL
+      const base64Data = reader.result.split(',')[1];
+
+      // Construct the base64 Data URL
+      const base64DataUrl = `data:${file.type};base64,${base64Data}`;
+
+      this.products.patchValue({
+        Product_Img_Cold: base64DataUrl,
+      });
     }
+  };
+}
+
+onChangeImgFrappe(e: any) {
+  const file = e.target.files[0];
+  if (!file) {
+    return;
+  }
+
+  var pattern = /image.*/;
+  if (!file.type.match(pattern)) {
+    alert('Invalid format. Please select an image file.');
+    // You may choose to clear the input or take other actions here.
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+
+  reader.onload = () => {
+    this.previewLoaded = true;
+
+    if (typeof reader.result === 'string') {
+      // Convert the Data URL to a base64 Data URL
+      const base64Data = reader.result.split(',')[1];
+
+      // Construct the base64 Data URL
+      const base64DataUrl = `data:${file.type};base64,${base64Data}`;
+
+      this.products.patchValue({
+        Product_Img_Frappe: base64DataUrl,
+      });
+    }
+  };
 }
 
   createProduct() {
@@ -108,6 +243,7 @@ export class CreateproductComponent implements OnInit{
     if (value === true) {
       this.showhot = value;
     } else {
+      this.showhot = value;
       this.products.controls.Product_Detail_Hot.setValue('None');
       this.products.controls.Product_Price_Hot.setValue('0');
       this.products.controls.Product_Img_Hot.setValue('None');
@@ -118,6 +254,7 @@ export class CreateproductComponent implements OnInit{
     if (value === true) {
       this.showcold = value;
     } else {
+      this.showcold = value;
       this.products.controls.Product_Detail_Cold.setValue('None');
       this.products.controls.Product_Price_Cold.setValue('0');
       this.products.controls.Product_Img_Cold.setValue('None');
@@ -128,6 +265,7 @@ export class CreateproductComponent implements OnInit{
     if (value === true) {
       this.showfrappe = value;
     } else {
+      this.showfrappe = value;
       this.products.controls.Product_Detail_Frappe.setValue('None');
       this.products.controls.Product_Price_Frappe.setValue('0');
       this.products.controls.Product_Img_Frappe.setValue('None');
