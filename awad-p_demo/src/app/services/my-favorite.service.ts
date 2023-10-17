@@ -11,6 +11,7 @@ export class MyFavoriteService {
   myFavorite:any;
   allFavorite:any;
   thisFavorite:any;
+  StatusMyFavorite:any;
 
   token = localStorage.getItem('token');
   role = localStorage.getItem('role');
@@ -43,11 +44,24 @@ export class MyFavoriteService {
     return this.http.get<any>(`http://localhost:3000/myfavorites/get/uid/${u_id}`, { headers: this.headers })
       .pipe(map(data => {
         if(data) {
-          this.myFavorite = data;
+          this.StatusMyFavorite = data;
         }
-        return this.myFavorite;
+        return this.StatusMyFavorite;
       }));
   }
+
+  // // TODO GET All by U_id P_id P_prefix
+  // // ทำ POST ข้อมูลไปยัง MyFavorite ด้วย U_id
+  // restStatusMyFavorite(dataToSend: any) {
+  //   return this.http.post<any>(`http://localhost:3000/get/statusMyFavorite`, dataToSend, { headers: this.headers })
+  //     .pipe(map(data => {
+  //       if (data) {
+  //         this.myFavorite = data;
+  //       }
+  //       return this.myFavorite;
+  //     }));
+  // }
+
 
   // TODO GET One by Favorite_ID
   restOneByf_idmyFavorite(f_id:any) {

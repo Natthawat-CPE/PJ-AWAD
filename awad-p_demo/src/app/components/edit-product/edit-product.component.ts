@@ -171,6 +171,7 @@ export class EditProductComponent implements OnInit {
     this.productService. updateProduct (product_id ,this.ProductForm.value).subscribe(
        data => {
         console.log(data)
+        alert("Update Product Success !!!");
       },
       err => {
         console.log(err);
@@ -183,6 +184,7 @@ export class EditProductComponent implements OnInit {
     this.productService.deleteProduct (product_id).subscribe(
        data => {
         console.log(data)
+        alert("Delete Product Success !!!");
       },
       err => {
         console.log(err);

@@ -18,8 +18,8 @@ router.get('/get/uid/:u_id', authorization, getMyFavoriteByUid, async (req, res)
     res.json(res.myfavorites);
 });
 
-// // Count
-// router.get('/get/counter/:u_id', authorization, getMyFavoriteByUid, async (req, res) => {
+// // Getting One By u_id, P_id, P_prefix for check pass favorite
+// router.post('/get/statusMyFavorite', authorization, getMyFavoriteByF_name, async (req, res) => {
 //     res.json(res.myfavorites);
 // });
 

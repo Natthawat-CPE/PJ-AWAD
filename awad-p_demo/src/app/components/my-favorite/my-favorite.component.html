@@ -1,2 +1,48 @@
 <app-usermenu></app-usermenu>
-<p>my-favorite works!</p>
+
+<br>
+<div style="padding-left: 3%;">
+    <a routerLink="/products" class="btn btn-secondary" role="button">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </a>
+</div>
+<div class="card" style="width: 90%; background-color: #ffffff; margin:auto;  background-attachment: scroll; margin-top: 1%; margin-bottom: 3%;">
+
+    
+
+
+ <h2>Products</h2>
+<div class="table-responsive-md ">
+  <table class="table table-striped table-inverse table-hove">
+    <thead class="thead-inverse">
+      <tr>
+        <th>List Number</th>
+        <th>Name</th>
+        <!-- <th>Type of Product</th> -->
+        <th>Delete from My Favorite</th>
+      </tr>
+    </thead>
+    <tbody class="table-hove">
+      <tr *ngFor="let item of this.myFavorite; index as i">
+        <td scope="row">{{ i+1 }}</td>
+        <td>{{ item.P_Name }}</td>
+        <!-- <td>{{ item.P_Prefix }}</td> -->
+        <td>
+          <a class="btn btn-outline-danger " role="button" (click)="deleteMyFavorite(i)">
+            <i class="fa fa-trash" aria-hidden="true"></i
+          ></a>
+        </td>
+      </tr>
+    </tbody>
+
+
+
+    
+
+  </table>
+</div>
+    
+
+
+</div>
+

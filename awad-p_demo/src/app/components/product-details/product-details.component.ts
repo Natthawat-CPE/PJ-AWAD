@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
 import { MyFavoriteService } from 'src/app/services/my-favorite.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-product-details',
@@ -35,7 +36,7 @@ export class ProductDetailsComponent implements OnInit{
 
 
 
-  statusMyFavorite:boolean = false;
+  statusMyFavorite!:boolean;
 
   constructor
   (
@@ -46,9 +47,81 @@ export class ProductDetailsComponent implements OnInit{
   
   {
     this.getOneProduct();
+    // this.loadDataFavorite();
   }
 
   ngOnInit(): void {
+  }
+
+  loadDataFavorite(){
+    let myFavorite:any;
+    let user_id = localStorage.getItem('userId');
+    let product_id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    let prefix:string;
+      if (this.updated_hot_button_selected == true) {
+        prefix = "(ร้อน)";
+      } else if (this.updated_cold_button_selected == true) {
+        prefix = "(เย็น)";
+      } else {
+        prefix = "(ปั่น)";
+      }
+
+    this.myFavoriteService.restAllByu_idmyFavorite(user_id).subscribe(
+      data => {
+        myFavorite = data;
+        console.log(myFavorite);
+
+        // *
+        const result_P_Id = myFavorite.some((Object:any) => {
+          return Object.P_Id == product_id;
+        });
+    
+        const result_P_Prefix = myFavorite.some((Object:any) => {
+          return Object.P_Prefix == prefix;
+        });
+
+
+        if (result_P_Id && result_P_Prefix) {
+          this.statusMyFavorite = true;
+          console.log('พบข้อมูล:');
+         } else {
+          this.statusMyFavorite = false;
+          console.log('ไม่พบข้อมูลที่ตรงเงื่อนไข');
+         }
+
+        // *
+        // const P_Prefix = prefix;
+        // const P_Id = product_id;
+
+        // const foundItem = myFavorite.find((item:any) => {item.P_Prefix === P_Prefix && item.P_Id === P_Id});
+
+        // if (foundItem) {
+        //   // พบข้อมูลที่ตรงเงื่อนไข
+        //   console.log('พบข้อมูล:', foundItem);
+        //   this.statusMyFavorite = true;
+        // } else {
+        //   // ไม่พบข้อมูลที่ตรงเงื่อนไข
+        //   console.log('ไม่พบข้อมูลที่ตรงเงื่อนไข');
+        //   this.statusMyFavorite = false;
+        // }
+
+        // *
+        // if (myFavorite.includes({'P_Id':product_id, 'P_Prefix':prefix})) {
+        //   this.statusMyFavorite = true;
+        //   console.log('พบข้อมูล:');
+        // } else {
+        //   console.log('ไม่พบข้อมูลที่ตรงเงื่อนไข');
+        //     this.statusMyFavorite = false;
+        // }
+          
+          },
+          err => {
+            console.log(err);
+          }
+    );
+
+
   }
 
   getOneProduct() {
@@ -59,6 +132,7 @@ export class ProductDetailsComponent implements OnInit{
           this.product = data;
           console.log(this.product)
           this.setDefaultDetail(this.product);
+          this.loadDataFavorite();
         },
         err => {
           console.log(err);
@@ -70,7 +144,7 @@ export class ProductDetailsComponent implements OnInit{
   }
 
   setDefaultDetail(product: any) {
-    console.log(product.Product_IsHot);
+    // console.log(product.Product_IsHot);
     if (product.Product_IsHot) {
       console.log("really hot")
       this.setDetailHot(product);
@@ -84,6 +158,7 @@ export class ProductDetailsComponent implements OnInit{
   }
 
   setDetailHot(product: any) {
+    this.loadDataFavorite();
     this.current_Detail = product.Product_Detail_Hot;
     this.current_Img = product.Product_Img_Hot;
     this.current_Price = product.Product_Price_Hot;
@@ -96,6 +171,7 @@ export class ProductDetailsComponent implements OnInit{
   }
 
   setDetailCold(product: any) {
+    this.loadDataFavorite();
     this.current_Detail = product.Product_Detail_Cold;
     this.current_Img = product.Product_Img_Cold;
     this.current_Price = product.Product_Price_Cold;
@@ -108,6 +184,7 @@ export class ProductDetailsComponent implements OnInit{
   }
 
   setDetailFrappe(product: any) {
+    this.loadDataFavorite();
     console.log("click frappe")
     this.current_Detail = product.Product_Detail_Frappe;
     this.current_Img = product.Product_Img_Frappe;
@@ -124,6 +201,7 @@ export class ProductDetailsComponent implements OnInit{
     hot? this.updated_hot_button = this.hot_button_selected : this.updated_hot_button = this.hot_button;
     cold? this.updated_cold_button = this.cold_button_selected : this.updated_cold_button = this.cold_button;
     frappe? this.updated_frappe_button = this.frappe_button_selected : this.updated_frappe_button = this.frappe_button;
+    
   }
 
   
@@ -157,6 +235,7 @@ export class ProductDetailsComponent implements OnInit{
       this.myFavoriteService.createMyFavorite(saveData.value).subscribe(        
       data => {
         console.log(data)
+        window.location.reload();
       },
       err => {
         console.log(err);
@@ -176,6 +255,7 @@ export class ProductDetailsComponent implements OnInit{
       this.myFavoriteService.deleteOneFavoriteByF_name(deleteData.value).subscribe(
         data => {
           console.log('Deleted Success !!!');
+          window.location.reload();
         },
         err => {
           console.log(err);

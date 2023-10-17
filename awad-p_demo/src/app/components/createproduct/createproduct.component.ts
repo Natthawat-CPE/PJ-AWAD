@@ -216,6 +216,7 @@ onChangeImgFrappe(e: any) {
         console.log(data)
         this.products.reset();
         this.previewLoaded = false;
+        alert("Create Product Success !!!");
       },
       err => {
         alert("Input is invalid");

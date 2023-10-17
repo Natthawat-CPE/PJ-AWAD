@@ -157,6 +157,17 @@ Content-Type: application/json
     "P_Prefix": "(ร้อน)",
     "U_Id": "652cf294e368234d9a6e76b6"
 }
+### 
+## TODO POST for GET Data StatusMyFavorite
+POST http://localhost:3000/get/statusMyFavorite
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MmRhY2VmYmJmMzQ4OTYxNDJlNTI4OSIsIlVzZXJfTmFtZSI6InRvbmciLCJQYXNzd29yZCI6IiQyYSQxMCRwd1dzZXFsWDNuWWxJV1hGdDdqNVBlUzBvTHEwN0t0UjgzY0pCenBGY3BDRVJHcUIxQlovdSIsImlhdCI6MTY5NzQ5NDU5MCwiZXhwIjoxNjk3NDk4MTkwfQ.NFC1g-AVuRuuxBaevccJ8L8rsWtDoLAmg6QHoed0KSA
+Content-Type: application/json
+
+{
+    "P_Id": "652dac795c5ecd4d447a0ac0",
+    "P_Prefix": "(เย็น)",
+    "U_Id": "652dacefbbf34896142e5289"
+}
 
 ###
 
