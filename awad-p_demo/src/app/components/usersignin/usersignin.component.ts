@@ -36,9 +36,11 @@ export class UsersigninComponent implements OnInit{
         localStorage.setItem('role', 'User');
         this.router.navigate(['/home/user']);
         console.log("code work");
+        alert('Sign-In successfully !!!');
       },
       err => {
         console.log(err);
+        alert('Cannot Sign-In !!!');
       }
     );
   }

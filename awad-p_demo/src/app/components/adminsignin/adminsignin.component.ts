@@ -34,9 +34,11 @@ export class AdminsigninComponent implements OnInit{
         localStorage.setItem('role', 'Admin');
         this.router.navigate(['/home/admin']);
         console.log("code work");
+        alert('Sign-In successfully !!!');
       },
       err => {
         console.log(err);
+        alert('Cannot Sign-In  !!!');
       }
     );
   }
